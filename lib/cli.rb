@@ -7,7 +7,7 @@ class CLI
     puts " "
     Scraper.scrape_articles
     binding.pry
-    print_title
+    print_article
     menu
   end
   
