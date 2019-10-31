@@ -1,5 +1,5 @@
 class Article 
-  attr_accessor :title, :url 
+  attr_accessor :title, :url, :subtitle 
    @@all = []
   
   def initialize 

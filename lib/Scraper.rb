@@ -1,3 +1,4 @@
+require 'open-uri'
 class Scraper
   
   def self.scrape_articles
@@ -11,7 +12,8 @@ class Scraper
   end
   
   def self.scrape_article_info(article)
-    binding.pry
-     doc = Nokogiri::HTML(open("https://www.huffpost.com#{article.url}"))
+     doc = Nokogiri::HTML(open("https://www.huffpost.com/#{article.url}"))
+     article.subtitle = doc.css("div.headline__subtitle").text
+     binding.pry
   end
 end

@@ -8,6 +8,7 @@ class CLI
     Scraper.scrape_articles
     print_article
     puts " "
+    puts "Type the number of the article you would like more information about. Type print to see the list again, or exit to exit."
     menu
   end
   
@@ -18,18 +19,22 @@ class CLI
   end
   
   def menu
-    puts "Type the number of the article you would like more information about. Type print to see the list again, or exit to exit."
     input = nil
     input = gets.strip.downcase
     while input != "exit" do
-        article = Article.all[input.to_i-1]
-        Scraper.scrape_article_info(article)
+      article = Article.all[input.to_i-1]
+      Scraper.scrape_article_info(article)
+      binding.pry
     end
-    # binding.pry
-      if input == "print"
+   
+   if input == "print"
         print_article
-      
+    else
+      "Unsure of what you want, type print or exit."
     end     
   end
-
+  
+  def goodbye 
+    puts "Thank you for browsing. Goodbye!"
+  end
 end
