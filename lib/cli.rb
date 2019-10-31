@@ -1,3 +1,7 @@
+require 'nokogiri'
+require 'open-uri'
+require 'pry'
+
 def run 
   puts "Today's Top Stories:"
   puts " "
