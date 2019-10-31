@@ -3,6 +3,8 @@
 require "bundler/setup"
 require "top_stories"
 require_relative "../lib/cli"
+require_relative "../lib/Scraper"
+require_relative "../lib/article"
 
 run
 
