@@ -1,19 +1,22 @@
-require 'nokogiri'
-require 'open-uri'
+
 require 'pry'
 
-def run 
-  puts "Today's Top Stories:"
-  puts " "
+class CLI
+  def run 
+    puts "Today's Top Stories:"
+    puts " "
+    print_title
+    menu
+  end
   
-  doc = Nokogiri::HTML(open("https://www.huffpost.com"))
-  doc.css("div.zone__content")[1].css("div.card__content").each do |art|
-      articles = []
-    # article = Articles.new
-    title = art.css("div.card__details").css("div.card__headline__text").text.strip
-      articles << title
-  end
-    articles.each.with_index(1) do |title, index|
+  def print_article
+    Article.all.each.with_index(1) do |title, index|
       puts "#{index}. #{title}"
+    end
   end
-end 
+  
+  def menu
+    
+  end
+
+end

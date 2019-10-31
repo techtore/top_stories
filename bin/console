@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
+require 'nokogiri'
+require 'open-uri'
+require 'pry'
 
 require "bundler/setup"
 require "top_stories"
@@ -6,7 +9,9 @@ require_relative "../lib/cli"
 require_relative "../lib/Scraper"
 require_relative "../lib/article"
 
-run
+CLI.new.run
+
+
 
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
