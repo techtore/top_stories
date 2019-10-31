@@ -15,6 +15,6 @@ class Scraper
   def self.scrape_article_info(article)
     html = open("https://www.huffpost.com/#{article.url}")
     doc = Nokogiri::HTML(html)
-     article.subtitle = doc.css("div.headline__subtitle").text
+    # article.subtitle = doc.css("div.headline__subtitle").text
   end
 end
