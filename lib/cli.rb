@@ -6,10 +6,8 @@ class CLI
     puts "Today's Top Stories:"
     puts " "
     Scraper.scrape_articles
-    
     print_article
     puts " "
-  
     menu
   end
   
@@ -24,10 +22,10 @@ class CLI
     input = nil
     input = gets.strip.downcase
     while input != "exit" do
-        article = Article.all(input.to_i -1)
+        article = Article.all[input.to_i-1]
         Scraper.scrape_article_info(article)
     end
-    binding.pry
+    # binding.pry
       if input == "print"
         print_article
       

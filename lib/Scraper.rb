@@ -11,6 +11,7 @@ class Scraper
   end
   
   def self.scrape_article_info(article)
+    binding.pry
      doc = Nokogiri::HTML(open("https://www.huffpost.com#{article.url}"))
   end
 end
