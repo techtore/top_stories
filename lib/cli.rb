@@ -24,11 +24,16 @@ class CLI
       
       puts "Would you like to read another article?"
       puts "If so, type the number of the article you would like to read, or type 'exit' to exit"
-      exi
+    
       input = gets.strip.downcase
       
+      if input.to_i < 0 || input.to_i >6
+        puts "Invalid input. Type list to see artcile titles again, or 'exit' to exit."
+      elsif input == "list"
+       print_article
+      end
     end
-    goodbye
+      goodbye
   end
   
   def print_article
