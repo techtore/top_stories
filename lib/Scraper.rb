@@ -11,6 +11,6 @@ class Scraper
   end
   
   def self.scrape_article_info(article)
-    
+     doc = Nokogiri::HTML(open("https://www.huffpost.com#{article.url}"))
   end
 end
