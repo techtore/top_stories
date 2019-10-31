@@ -16,7 +16,7 @@ class CLI
     while input != "exit" && input.to_i > 0 && input.to_i <= 6 do
       
       article = Article.all[input.to_i-1] 
-      Scraper.scrape_article_content if !article.title
+      Scraper.scrape_article_content(article) if !article.subtitle
         
       print_article_content(article)
         

@@ -18,11 +18,7 @@ class Scraper
     
     html = open(article.url)
     doc = Nokogiri::HTML(html)
-     
-    doc.css("js-entry-text.yr-entry-text").each do |art|
-      article.subtitle = art.css("div.headline__subtitle").text
-      article.content = art.css("div.content-list-component.yr-content-list-text")[0].css("p")[0].text
-     
-    end
+      article.content = doc.css(".js-entry-text p").text
+      article.subtitle = doc.css(".headline__subtitle").text
   end
 end
