@@ -15,15 +15,15 @@ class CLI
     input = gets.strip.downcase
     while input != "exit" && input.to_i > 0 && input.to_i <= 6 do
       
-        article = Article.all[input.to_i-1] 
-        Scraper.scrape_article_content if !article.subtitle
+      article = Article.all[input.to_i-1] 
+      Scraper.scrape_article_content if !article.title
         
-        print_article_content(article)
+      print_article_content(article)
         
-        puts " "
-        puts "Would you like to read another article?"
-        puts "If so, type the number of the article you would like to read, or type 'exit' to exit"
-        input = gets.strip.downcase
+      puts " "
+      puts "Would you like to read another article?"
+      puts "If so, type the number of the article you would like to read, or type 'exit' to exit"
+      input = gets.strip.downcase
       
     end 
     goodbye
@@ -37,7 +37,7 @@ class CLI
   end
   
   def print_article_content(article)
-    Scraper.scrape_article_content(article)
+    puts "#{article.title}"
     puts "#{article.subtitle}"
     puts "#{article.content}"
     
