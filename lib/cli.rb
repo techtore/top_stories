@@ -14,15 +14,17 @@ class CLI
     
     input = gets.strip.downcase
     while input != "exit" do
-      if input > 0
+      if input.to_i > 0 
         article = Article.all[input.to_i-1]
         Scraper.scrape_article_info(article) if !article.subtitle
   
         print_article_content(article)
+        puts " "
         puts "Would you like to read another article?"
-        puts "If so, type the number of the article you would like to read"
+        puts "If so, type the number of the article you would like to read, or type 'exit' to exit"
         input = gets.strip.downcase
-      end 
+      end
+    end 
     goodbye
   end
   
@@ -30,7 +32,6 @@ class CLI
       Article.all.each.with_index(1) do |article, index|
       puts "#{index}. #{article.title}"
       puts " "
-      puts "Type the number of the article you would like more information about. Type print to see the list again, or exit to exit."
     end
   end
   
