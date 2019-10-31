@@ -12,12 +12,15 @@ class Scraper
     end
   end
   
-  def self.scrape_article_info(article)
+  def self.scrape_article_content(article)
+    
     html = open(article.url)
     doc = Nokogiri::HTML(html)
+    
     doc.css("entry__body.js-entry-body").each do |art|
       article.subtitle = art.css("div.headline__subtitle").text
-      article.content = art.css("div.content-list-component.yr-content-list-text.text")[0].css("p")
+      article.content = art.css("div.content-list-component.yr-content-list-text.text")[0].css("p").text
+      binding.pry
     end
   end
 end
