@@ -8,23 +8,24 @@ class CLI
     puts "Today's Top Stories:"
     puts " "
     print_article
+    puts "Type the number of the article you would like to read"
     
     input = gets.strip.downcase
     while input != "exit" do
-      article = Article.all[input.to_i-1]
-      Scraper.scrape_article_info(article)
-
-    if input == "print"
-      print_article
-     
-    else
-      "Unsure of what you want, type print or exit."
-    end 
+      if input > 0
+        article = Article.all[input.to_i-1]
+        Scraper.scrape_article_info(article) if !article.content
+  
+        print_article
+      else
+        "Unsure of what you want, type list or exit."
+      end 
+      # ask for input again input - gets.strip.downcase
     end
     goodbye
   end
   
-  def print_article #doesn't work without Scraper.scrape_articles
+  def print_article 
      Scraper.scrape_articles
       Article.all.each.with_index(1) do |article, index|
       puts "#{index}. #{article.title}"
