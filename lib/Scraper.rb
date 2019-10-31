@@ -2,7 +2,8 @@ require 'open-uri'
 class Scraper
   
   def self.scrape_articles
-    doc = Nokogiri::HTML(open("https://www.huffpost.com"))
+    html = open("https://www.huffpost.com")
+    doc = Nokogiri::HTML(html)
       doc.css("div.zone__content")[1].css("div.card__content").each do |art|
     
         article = Article.new
@@ -12,8 +13,8 @@ class Scraper
   end
   
   def self.scrape_article_info(article)
-     doc = Nokogiri::HTML(open("https://www.huffpost.com/#{article.url}"))
+    html = open("https://www.huffpost.com/#{article.url}")
+    doc = Nokogiri::HTML(html)
      article.subtitle = doc.css("div.headline__subtitle").text
-     binding.pry
   end
 end
