@@ -21,11 +21,13 @@ class CLI
       print_article_content(article)
         
       puts " "
+      
       puts "Would you like to read another article?"
       puts "If so, type the number of the article you would like to read, or type 'exit' to exit"
+      exi
       input = gets.strip.downcase
       
-    end 
+    end
     goodbye
   end
   
@@ -38,7 +40,9 @@ class CLI
   
   def print_article_content(article)
     puts "#{article.title}"
+    puts " "
     puts "#{article.subtitle}"
+    puts " "
     puts "#{article.content}"
     
   end

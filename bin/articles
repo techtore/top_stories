@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+require 'nokogiri'
+require 'open-uri'
+require 'pry'
+
+require "bundler/setup"
+require "top_stories"
+require_relative "../lib/cli"
+require_relative "../lib/Scraper"
+require_relative "../lib/article"
+
+CLI.new.run
