@@ -9,19 +9,13 @@ class Scraper
         article = Article.new
         article.title = art.css("div.card__details").css("div.card__headline__text").text.strip
         article.url = art.css("a").attribute("href").value
-
       end
   end
   
   def self.scrape_article_content(article)
-    
     html = open(article.url).read
     doc = Nokogiri::HTML(html)
-    binding.pry
       article.subtitle = doc.css(".headline__subtitle").text
-      
-      article.content = doc.css(".js-entry-text p").text
-      
-      binding.pry
+      article.content= doc.css(".js-entry-text p").text
   end
 end
