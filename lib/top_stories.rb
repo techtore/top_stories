@@ -1,6 +1,11 @@
-require "top_stories/version"
 
-module TopStories
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require 'nokogiri'
+require 'open-uri'
+require 'pry' 
+
+require "bundler/setup"
+
+require_relative "../lib/top_stories/cli"
+require_relative "../lib/top_stories/scraper"
+require_relative "../lib/top_stories/article"
+require_relative "../lib/top_stories/version"
