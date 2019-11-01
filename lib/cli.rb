@@ -14,13 +14,19 @@ class CLI
     puts "Type the number of the article you would like to read"
    
     input = gets.strip.downcase
-    while input != 'exit' && input.to_i > 0 && input.to_i <= 6 do
+    while input != 'exit'  do
+      if input.to_i > 0 && input.to_i <= 6
+        article = Article.all[input.to_i-1] 
+        Scraper.scrape_article_content(article) if !article.subtitle
+        
+        print_article_content(article)
+      elsif input == 'list'
+        print_article
+      elsif input.to_i <= 0 || input.to_i > 6
+        puts "Invalid input. Type list to see artcile titles again, or 'exit' to exit."
      
-      article = Article.all[input.to_i-1] 
-      Scraper.scrape_article_content(article) if !article.subtitle
-        
-      print_article_content(article)
-        
+
+      end
       puts " "
       
       puts "Would you like to read another article?"
@@ -29,13 +35,7 @@ class CLI
     
       input = gets.strip.downcase
       
-      if input.to_i <= 0 || input.to_i > 6
-        puts "Invalid input. Type list to see artcile titles again, or 'exit' to exit."
-      elsif input == 'list'
-       print_article
-      elsif input == 'exit'
-       exit
-      end
+    
     end
     puts "Thank you for reading. See you again tomorrow!"
   end
