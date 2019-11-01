@@ -4,7 +4,7 @@ class CLI
       puts "Today's Top Stories:"
       puts " "
       Scraper.scrape_articles
-      print_article
+      print_articles
       puts " "
       puts "Type the number of the article you would like to read"
       input = gets.strip.downcase
@@ -14,9 +14,9 @@ class CLI
           Scraper.scrape_article_content(article) if !article.subtitle
           print_article_content(article)
         elsif input == 'list'
-          print_article
+          print_articles
         elsif input.to_i <= 0 || input.to_i > 6
-          puts "Invalid input. Type list to see artcile titles again, or 'exit' to exit."
+          puts "Invalid input. Type 'list' to see artcile titles again, or 'exit' to exit."
         end
           puts " "
           puts "_____________________________________Menu______________________________________"
@@ -31,7 +31,7 @@ class CLI
           puts "Thank you for reading. See you again tomorrow!"
   end
   
-  def print_article
+  def print_articles
       Article.all.each.with_index(1) do |article, index|
         puts "#{index}. #{article.title}"
         sleep(0.75)
