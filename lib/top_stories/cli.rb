@@ -28,8 +28,8 @@ class CLI
           puts " "
           input = gets.strip.downcase
         end
-        puts "Thank you for reading. See you again tomorrow!"
-    end
+          puts "Thank you for reading. See you again tomorrow!"
+  end
   
   def print_article
       Article.all.each.with_index(1) do |article, index|
