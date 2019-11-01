@@ -38,13 +38,13 @@ class CLI
   def print_article
       Article.all.each.with_index(1) do |article, index|
       puts "#{index}. #{article.title}"
-      sleep(1)
+      sleep(0.75)
       puts " "
     end
   end
   
   def print_article_content(article)
-    puts "#{article.title}"
+    puts "Title: #{article.title}"
     sleep(1)
     puts " "
     puts "#{article.subtitle}"
