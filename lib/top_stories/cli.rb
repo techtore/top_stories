@@ -21,8 +21,10 @@ class CLI
           puts " "
           puts "_____________________________________Menu______________________________________"
           puts "Would you like to read another article?"
-          puts "If so, type the number of the article you would like to read, or type 'exit' to exit"
-          puts "To see the list again type 'list'"
+          puts "If so, you can:"
+          puts "1.Type the number of the article you would like to read."
+          puts "2.Type 'list' to see the list again."
+          puts "3.Type 'exit' to exit."
           puts " "
           input = gets.strip.downcase
         end
