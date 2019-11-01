@@ -18,27 +18,22 @@ class CLI
       if input.to_i > 0 && input.to_i <= 6
         article = Article.all[input.to_i-1] 
         Scraper.scrape_article_content(article) if !article.subtitle
-        
         print_article_content(article)
       elsif input == 'list'
         print_article
       elsif input.to_i <= 0 || input.to_i > 6
         puts "Invalid input. Type list to see artcile titles again, or 'exit' to exit."
-     
-
       end
-      puts " "
-      
-      puts "Would you like to read another article?"
-      puts "If so, type the number of the article you would like to read, or type 'exit' to exit"
-      puts "To see the list again type 'list'"
-    
-      input = gets.strip.downcase
-      
-    
+        puts " "
+        puts "_____________________________________Menu______________________________________"
+        puts "Would you like to read another article?"
+        puts "If so, type the number of the article you would like to read, or type 'exit' to exit"
+        puts "To see the list again type 'list'"
+        puts " "
+        input = gets.strip.downcase
+      end
+      puts "Thank you for reading. See you again tomorrow!"
     end
-    puts "Thank you for reading. See you again tomorrow!"
-  end
   
   def print_article
       Article.all.each.with_index(1) do |article, index|
