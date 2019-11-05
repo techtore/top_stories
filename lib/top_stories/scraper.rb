@@ -1,7 +1,7 @@
 class Scraper
   
   def self.scrape_articles
-    html = open("https://www.huffpost.com")
+    html = open("http://web.archive.org/web/20191030051805/https://www.huffpost.com")
     doc = Nokogiri::HTML(html)
       doc.css("div.zone__content")[1].css("div.card__content").each do |art|
         article = Article.new
